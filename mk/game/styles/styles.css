@@ -1,0 +1,136 @@
+table {
+  margin: auto;
+}
+td {
+  padding: 10px;
+}
+th {
+  font-size: 19px;
+}
+.instructions-list {
+  margin-left: 150px;
+}
+h1 {
+  text-align: center;
+}
+canvas {
+  border: 3px solid white;
+  border-radius: 5px;
+}
+#movementjs-main-canvas {
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  position: static !important;
+  width: 600px;
+  height: 400px;
+  background-color: #777;
+}
+body,
+html {
+  background-color: black;
+  color: #fff;
+  font-family: Verdana;
+  font-size: 12px;
+}
+#parent {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  border-radius: 10px;
+}
+#arena {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+#loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.lifebar {
+  width: 200px;
+  height: 15px;
+  background-color: red;
+  position: absolute;
+}
+#player1LifeBar {
+  left: 20px;
+  top: 30px;
+  border-bottom-right-radius: 15px;
+}
+#player1LifeBar .life {
+  border-bottom-right-radius: 15px;
+  float: left;
+}
+#player2LifeBar {
+  right: 20px;
+  top: 30px;
+  border-bottom-left-radius: 15px;
+}
+#player2LifeBar .life {
+  border-bottom-left-radius: 15px;
+  float: right;
+}
+.playerName {
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Verdana;
+  font-size: 14px;
+  position: absolute;
+}
+#player1Name {
+  left: 30px;
+  top: 10px;
+}
+#player2Name {
+  right: 30px;
+  top: 10px;
+}
+.life {
+  width: 100%;
+  height: 100%;
+  background-color: #3cd400;
+}
+#utils {
+  visibility: hidden;
+  z-index: 100;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.manual {
+  width: 600px;
+  margin: auto;
+  color: #fff;
+  font-family: Verdana;
+  margin-top: 15px;
+  font-size: 14px;
+}
+.manual > div {
+  margin-left: 150px;
+}
+.manual a {
+  color: #fff;
+}
+.formContainer {
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.loadingLabel {
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  left: 220px;
+  top: 150px;
+}

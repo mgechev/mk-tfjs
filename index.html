@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mk.js</title>
+    <link rel="stylesheet" href="mk/game/styles/styles.css">
+</head>
+<body>
+    <h1 id="loading-page">Loading...</h1>
+    <table id="playground" style="display: none">
+    <thead>
+        <th>
+            Arena
+        </th>
+        <th>
+            Webcam
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <div id="parent">
+                    <div id="utils">
+                        <div id="player1Name" class="playerName">Sub-Zero</div>
+                        <div id="player1LifeBar" class="lifebar"><div class="life" id="player1Life"></div></div>
+                        <div id="player2Name" class="playerName">Kano</div>
+                        <div id="player2LifeBar" class="lifebar"><div class="life" id="player2Life"></div></div>
+                    </div>
+                    <div id="arena">
+                    </div>
+                    <div id="loading">
+                        <span class="loadingLabel">Loading...</span>
+                    </div>
+                </div>
+            </td>
+            <td id="webcam-parent">
+                <video id="cam" height="406" style="margin-top: 10px" autoplay></video>
+                <canvas style="display: none;" width="850" height="480" id="canvas"></canvas>
+                <canvas style="display: none;" width="100" height="56" id="crop"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h1>Instructions</h1>
+                <p>
+                    <ul class="instructions-list">
+                        <li>For playing with position recognition, you need a browser with WebGL support and allow it to use your webcam.</li>
+                        <li>Stay in the center of the camera. Ideally, there should be high contrast between you and the background.</li>
+                        <li>For walking left stay in the left side of the webcam view region and right if you want to walk right. If you want to stop just go back in the middle.</li>
+                        <li>Raise your left or right arm to punch.</li>
+                        <li>Raise your left or right leg to kick.</li>
+                        <li>Squat and your fighter will squat too.</li>
+                        <li>Enjoy!</li>
+                    </ul>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <div class="manual">
+    </div>
+    <script src="mk/game/src/mk.js"></script>
+    <script src="model.ts"></script>
+    <script>
+    (function () {
+
+      function $(id) {
+        return document.getElementById(id);
+      }
+
+      function setLife(container, life) {
+        container.style.width = life + '%';
+      }
+
+      document.onkeydown = function (e) {
+        if (e.keyCode === 32) {
+          window.location.reload();
+        }
+      };
+
+      (function () {
+        var startGame = function () {
+          $('loading').style.visibility = 'hidden';
+          $('arena').style.visibility = 'visible';
+          $('utils').style.visibility = 'visible';
+        };
+        var options = {
+          arena: {
+            container: document.getElementById('arena'),
+            arena: mk.arenas.types.THRONE_ROOM
+          },
+          fighters: [{ name: 'Subzero' }, { name: 'Kano' }],
+          callbacks: {
+            attack: function (f, o, l) {
+              if (o.getName() === 'kano') {
+                setLife($('player2Life'), o.getLife());
+              } else {
+                setLife($('player1Life'), o.getLife());
+              }
+            }
+
+          },
+          gameType: 'webcaminput'
+        };
+
+        function startNewGame() {
+          mk.start(options).ready(function () {
+            startGame();
+          });
+        }
+        startNewGame();
+      }());
+
+    }());
+    </script>
+</body>
+</html>
+
