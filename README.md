@@ -14,7 +14,7 @@ npm start
 cd model && serve -s .
 ```
 
-Keep in mind that the model is trained with a small dataset. If it doesn't perform well for you, feel free to follow the instructions from the [blog post](https://blog.mgechev.com/2018/10/20/transfer-learning-tensorflow-js-data-augmentation/) and improve its accuracy.
+Keep in mind that the model is trained with a small dataset. If it doesn't perform well for you, feel free to follow the instructions from the [blog post](https://blog.mgechev.com/2018/10/20/transfer-learning-tensorflow-js-data-augmentation-mobile-net/) and improve its accuracy.
 
 ## License
 
